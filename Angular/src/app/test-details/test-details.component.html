@@ -1,0 +1,18 @@
+<h1>Update Test Details</h1>
+<div *ngIf="test">
+    <div>
+        <label><b>Test Id</b> </label>{{test.testId}}
+    </div>
+
+    <div>
+        <label><b>Test Name</b> </label>{{test.testName}}
+    </div>
+
+    <div>
+        <label><b>Test Cost</b> </label>{{test.testCost}}
+    </div>
+</div>
+<br>
+<br>
+<button (click)="list()">Back to test List</button>
+

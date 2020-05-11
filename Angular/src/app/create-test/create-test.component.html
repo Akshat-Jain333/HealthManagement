@@ -1,0 +1,54 @@
+<h1>Test Form</h1>
+
+<div [hidden]="submitted" style="width: 400px;">
+<form (ngSubmit)="onSubmit()" #testForm="ngForm">
+
+    <div class="form-group">
+        <label for="id">Enter Id</label>
+        <input class="form-control" id="id" required [(ngModel)]="test.testId" name="id" minlength="4" #id='ngModel'>
+        <div *ngIf="id.touched && id.errors">
+            <div class="alert alert-danger" *ngIf="id.errors.required">
+              Id is required
+            </div>
+            <div class="alert alert-danger" *ngIf="id.errors.minlength">
+              Id is of 4 characters.
+            </div>
+          </div>
+  
+       
+    </div>
+    <div class="form-group">
+        <label for="name">Enter Name</label>
+        <input class="form-control" id="name" required [(ngModel)]="test.testName"  name="name" minlength="5" #name='ngModel'>
+        <div *ngIf="name.touched && name.errors">
+            <div class="alert alert-danger" *ngIf="name.errors.required">
+              Name is required
+            </div>
+            <div class="alert alert-danger" *ngIf="name.errors.minlength">
+              Name is required of at least 5 characters.
+            </div>
+          </div>
+    </div>
+
+    <div class="form-group">
+        <label for="cost">Enter Cost</label>
+        <input class="form-control" id="cost" required [(ngModel)]="test.testCost"  name="cost" minlength="2" #cost='ngModel'>
+        <div *ngIf="cost.touched && cost.errors">
+            <div class="alert alert-danger" *ngIf="cost.errors.required">
+              Cost is required
+            </div>
+            <div class="alert alert-danger" *ngIf="cost.errors.minlength">
+              Cost must be greater than 9.
+            </div>
+          </div>
+    </div>
+
+    <button type="submit" class="btn btn-success" [disabled]="!testForm.form.valid" >Submit</button>
+</form>
+</div>
+
+<div [hidden]="!submitted">
+    <h4>Test Submitted Successfully</h4>
+</div>
+<button  class="btn btn-success" (click)="newTest()" >Cancel</button>
+

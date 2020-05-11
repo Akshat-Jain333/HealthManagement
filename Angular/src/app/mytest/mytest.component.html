@@ -1,0 +1,14 @@
+<h1>My Test works!</h1>
+
+<table>
+    <tr *ngFor="let t of test| async">
+        <td>{{t.testId}}</td>
+        <td>{{t.testName | uppercase}}</td>
+        <td>{{t.testCost | currency: 'Rs'}}</td>
+        <td><button (click)="deleteTest(t.testId)">delete</button></td>
+        <td><button (click)="updateTest(t.testId)">update</button></td>
+        <td><button (click)="testDetails(t.testId)">Detail</button></td>
+    </tr>
+</table>
+
+<hr>
